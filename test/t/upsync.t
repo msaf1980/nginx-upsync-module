@@ -397,6 +397,8 @@ Upstream name: test; Backend server count: 2
         server 127.0.0.1:8088 weight=10 max_fails=3 fail_timeout=10s;
 /m;
 
+sleep(1);
+
 like(mhttp_get('/upstream_list?test', 'localhost', 8080), $rep, '2015-12-27 19:32:53');
 
 $rep = qr/
